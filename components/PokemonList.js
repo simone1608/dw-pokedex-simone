@@ -1,7 +1,7 @@
 export default function PokemonList() {
 
-    let pokemonLitElement = document.createElement("section");
-    pokemonLitElement.classList.add("pokemon-list");
+    let pokemonListElement = document.createElement("section");
+    pokemonListElement.classList.add("pokemon-list");
 
     fetch("https://pokeapi.co/api/v2/pokemon?limit=60")
         .then(function (response) {
@@ -10,9 +10,16 @@ export default function PokemonList() {
         .then(function (data) {
 
             data.results.forEach(function (pokemon) {
-                console.log(pokemon);
+
+                pokemonListElement.innerHTML += `
+                    <a href="detail.html?name=${pokemon.name}">
+                        <div class="pokemon-liste">
+                            <p class="pokemons-name">${pokemon.name}</p>
+                        </div>
+                    </a>
+                `
             });
         });
 
-    return pokemonLitElement;
+    return pokemonListElement;
 }
