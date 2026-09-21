@@ -1,0 +1,140 @@
+/* #region RESETS */
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --background-color: #DC0A2D;
+    --white: #ffffff;
+    --black: #1D1D1D;
+    --grey: #666666;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+#root {
+    max-width: 360px;
+    background-color: var(--background-color);
+}
+
+/* #endregion RESETS */
+
+/* #region Header */
+.header {
+    padding: 0.5rem;
+}
+
+.pokedex {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pokedex-img {
+    width: 2rem;
+}
+
+.pokedex-header {
+    color: var(--white);
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+input {
+    width: 280px;
+    border: 2px solid rgb(204, 204, 204);
+    border-radius: 1.5rem;
+    padding: 0.25rem 0.5rem;
+}
+
+/* #endregion Header */
+
+/* #region Pokemon liste */
+.pokemon-list {
+    background-color: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    padding: 1rem;
+}
+
+.pokemon {
+    height: 110px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.pokemon-image {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-top: 0.5rem;
+}
+
+.pokemon-number {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.5rem;
+    font-size: 0.7rem;
+    color: var(--grey);
+}
+
+.pokemon-name {
+    width: 100%;
+    margin: auto;
+    padding: 0rem 0.4rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* #endregion Pokemon liste */

@@ -11,12 +11,19 @@ export default function PokemonList() {
 
             data.results.forEach(function (pokemon) {
 
+                const pokeUrl = pokemon.url.split("/");
+                const id = pokeUrl[6];
+
+
                 pokemonListElement.innerHTML += `
-                    <a href="detail.html?name=${pokemon.name}">
-                        <div class="pokemon-liste">
+                    <div class="pokemon">
+                        <a href="detail.html?name=${pokemon.name}">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" 
+                            alt="${pokemon.name}" class="pokemon-image">
+                              <p class="pokemon-number">#${id.padStart(3, "0")}</p>
                             <p class="pokemons-name">${pokemon.name}</p>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 `
             });
         });

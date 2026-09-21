@@ -1,0 +1,58 @@
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --background-color: #DC0A2D;
+    --white: #ffffff;
+    --black: #1D1D1D;
+    --grey: #666666;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+#root {
+    max-width: 360px;
+    background-color: var(--background-color);
+}
+
+/* #endregion RESETS */
