@@ -21,7 +21,7 @@ export default function PokemonList() {
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" 
                             alt="${pokemon.name}" class="pokemon-image">
                               <p class="pokemon-number">#${id.padStart(3, "0")}</p>
-                            <p class="pokemons-name">${pokemon.name}</p>
+                            <p class="pokemon-name">${pokemon.name}</p>
                         </a>
                     </div>
                 `

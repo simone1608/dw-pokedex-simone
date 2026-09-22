@@ -52,7 +52,7 @@ body {
 }
 
 #root {
-    max-width: 360px;
+    max-width: 380px;
     background-color: var(--background-color);
 }
 
@@ -135,6 +135,7 @@ input {
     padding: 0rem 0.4rem;
     text-align: center;
     font-size: 0.9rem;
+    text-transform: capitalize;
 }
 
 /* #endregion Pokemon liste */
