@@ -3,6 +3,13 @@ export default function PokemonDetail(pokemon) {
     let pokemonDetailElement = document.createElement("section");
     pokemonDetailElement.classList.add("pokemon-detail");
 
+    let mainType = pokemon.types[0].type.name;
+
+    pokemonDetailElement.style.setProperty(
+        "--pokemon-color",
+        `var(--${mainType})`
+    );
+
     pokemonDetailElement.innerHTML = `
         <div class="detail-header">
             <div class="detail-title">
@@ -21,33 +28,32 @@ export default function PokemonDetail(pokemon) {
 
 
         
-
         <div class="pokemon-info">
             <div class="pokemon-types"></div>
-
+            
             <h2 class="about-title">About</h2>
-        </div>
+        
 
-        <div class="about-info">
-            <section class="about-item">
-                <div class="pokemon-size">
-                    <img src="img/weight.svg" alt="Weight">
-                <p>${pokemon.weight / 10} kg</p>
-                </div>
-                <p class="about-label">Weight</p>
-            </section>
-            <section class="about-item">
-                <div class="pokemon-size">
-                    <img src="img/height.svg" alt="Height">
-                <p>${pokemon.height / 10} m</p>
-                </div>
-                <p class="about-label">Height</p>
-            </section>
-            <section class="about-item">
-                <div class="abilities"></div>
-                <p class="about-label">Abilities</p>
-            </section>
-
+            <div class="about-info">
+                <section class="about-item">
+                    <div class="pokemon-size">
+                        <img src="img/weight.svg" alt="Weight">
+                    <p>${pokemon.weight / 10} kg</p>
+                    </div>
+                    <p class="about-label">Weight</p>
+                </section>
+                <section class="about-item">
+                    <div class="pokemon-size">
+                        <img src="img/height.svg" alt="Height">
+                    <p>${pokemon.height / 10} m</p>
+                    </div>
+                    <p class="about-label">Height</p>
+                </section>
+                <section class="about-item">
+                    <div class="abilities"></div>
+                    <p class="about-label">Abilities</p>
+                </section>
+            </div>
             <h2 class="stats-title">Base Stats</h2>
 
             <div class="base-stats"></div>
@@ -57,6 +63,15 @@ export default function PokemonDetail(pokemon) {
     let typesElement = pokemonDetailElement.querySelector(".pokemon-types");
     let abilitiesElement = pokemonDetailElement.querySelector(".abilities");
     let statsElement = pokemonDetailElement.querySelector(".base-stats");
+
+    let statName = {
+        hp: "HP",
+        attack: "ATK",
+        defense: "DEF",
+        "special-attack": "SATK",
+        "special-defense": "SDEF",
+        speed: "SPD"
+    }
 
     pokemon.types.forEach(function (type) {
         typesElement.innerHTML += `
@@ -75,8 +90,14 @@ export default function PokemonDetail(pokemon) {
     pokemon.stats.forEach(function (stat) {
         statsElement.innerHTML += `
             <div class="stat">
-                <p class="stat-name">${stat.stat.name}</div>
-                <p class="stat-number">${stat.base_stat}</p>
+                <p class="stat-name">${statName[stat.stat.name]}</p>
+                <p class="stat-number">${stat.base_stat.toString().padStart(3, "0")}</p>
+                <div class="stat-bar">
+                    <div 
+                        class="stat-bar-fill" 
+                        style="width: ${stat.base_stat}%">
+                    </div>
+                </div>
             </div>
         `;
     });

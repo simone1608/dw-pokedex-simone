@@ -81,7 +81,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: var(--black);
     color: var(--white);
 }
 
@@ -113,6 +112,10 @@ body {
 /* #endregion Background and picture */
 
 /* #region Pokemon Info */
+.pokemon-info {
+    background-color: var(--white);
+}
+
 .pokemon-types {
     display: flex;
     justify-content: center;
@@ -130,6 +133,8 @@ body {
 
 .about-title {
     text-align: center;
+    margin-top: 0.5rem;
+    color: var(--pokemon-color);
 }
 
 .about-info {
@@ -166,7 +171,10 @@ body {
 }
 
 .stats-title {
+    font-size: 1.3rem;
     text-align: center;
+    margin: 0.5rem 0;
+    color: var(--pokemon-color);
 }
 
 .stat {
@@ -177,16 +185,34 @@ body {
 
 .stat-name {
     width: 100px;
-    text-transform: uppercase;
+    color: var(--pokemon-color);
 }
 
 .stat-number {
     color: var(--grey);
 }
 
+.stat-bar {
+    flex: 1;
+    height: 5px;
+    background-color: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    background-color: var(--pokemon-color);
+    border-radius: 1rem;
+}
+
 /* #endregion Pokemon Info */
 
-/* #region Pokemon Types */
+/* #region Pokemon Types color */
+.pokemon-detail {
+    background-color: var(--pokemon-color);
+}
+
 .normal {
     background-color: var(--normal);
 }
@@ -255,4 +281,4 @@ body {
     background-color: var(--dark);
 }
 
-/* #endregion Pokemon Types */
+/* #endregion Pokemon Types color */
