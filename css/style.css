@@ -129,6 +129,8 @@ input {
     width: 65px;
     height: 65px;
     object-fit: contain;
+    object-position: center;
+    display: block;
     margin: 0 auto;
     margin-top: 1rem;
 }
