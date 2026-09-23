@@ -8,6 +8,7 @@ html {
     --white: #ffffff;
     --black: #1D1D1D;
     --grey: #666666;
+    --light-grey: #EFEFEF;
 }
 
 *,
@@ -112,13 +113,24 @@ input {
     align-items: center;
     position: relative;
     overflow: hidden;
+    isolation: isolate;
+}
+
+.pokemon::after {
+    content: "";
+    position: absolute;
+    inset: 55% 0 0;
+    background-color: var(--light-grey);
+    border-radius: inherit;
+    z-index: -1;
 }
 
 .pokemon-image {
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
     object-fit: contain;
-    margin-top: 0.5rem;
+    margin: 0 auto;
+    margin-top: 1rem;
 }
 
 .pokemon-number {
@@ -131,8 +143,8 @@ input {
 
 .pokemon-name {
     width: 100%;
-    margin: auto;
-    padding: 0rem 0.4rem;
+    margin-bottom: 0.5rem;
+    padding: 0 0.4rem;
     text-align: center;
     font-size: 0.9rem;
     text-transform: capitalize;

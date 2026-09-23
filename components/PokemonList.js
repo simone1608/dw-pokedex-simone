@@ -18,7 +18,7 @@ export default function PokemonList() {
                 pokemonListElement.innerHTML += `
                     <div class="pokemon">
                         <a href="detail.html?name=${pokemon.name}">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" 
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" 
                             alt="${pokemon.name}" class="pokemon-image">
                               <p class="pokemon-number">#${id.padStart(3, "0")}</p>
                             <p class="pokemon-name">${pokemon.name}</p>

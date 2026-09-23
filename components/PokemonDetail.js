@@ -23,10 +23,23 @@ export default function PokemonDetail(pokemon) {
             </p>
         </div>
         
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" 
-        alt="${pokemon.name}" class="pokemon-detail-image">
+        <div class="pokemon-image-area">
 
+            <img src="img/pokeball.svg" alt="Pokeball" class="pokeball-background">
 
+            ${pokemon.id > 1 ? `
+                <a href="detail.html?name=${pokemon.id - 1}" class="previous-pokemon">
+                    <img src="img/arrow-left.svg" alt="Left arrow">
+                </a>
+            ` : ""}
+
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" 
+            alt="${pokemon.name}" class="pokemon-detail-image">
+
+            <a href="detail.html?name=${pokemon.id + 1}" class="next-pokemon">
+                <img src="img/arrow-right.svg" alt="Right arrow">
+            </a>
+        </div>
         
         <div class="pokemon-info">
             <div class="pokemon-types"></div>
@@ -54,6 +67,9 @@ export default function PokemonDetail(pokemon) {
                     <p class="about-label">Abilities</p>
                 </section>
             </div>
+
+            <p class="pokemon-description"></p>
+
             <h2 class="stats-title">Base Stats</h2>
 
             <div class="base-stats"></div>
@@ -63,6 +79,7 @@ export default function PokemonDetail(pokemon) {
     let typesElement = pokemonDetailElement.querySelector(".pokemon-types");
     let abilitiesElement = pokemonDetailElement.querySelector(".abilities");
     let statsElement = pokemonDetailElement.querySelector(".base-stats");
+    let descriptionElement = pokemonDetailElement.querySelector(".pokemon-description");
 
     let statName = {
         hp: "HP",
@@ -101,6 +118,19 @@ export default function PokemonDetail(pokemon) {
             </div>
         `;
     });
+
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.name}`)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            let englishText = data.flavor_text_entries.find(function (entry) {
+                return entry.language.name === "en";
+            });
+            descriptionElement.textContent = englishText.flavor_text
+                .replace(/\n/g, " ")
+                .replace(/\f/g, " ");
+        });
 
     return pokemonDetailElement;
 }
