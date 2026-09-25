@@ -109,12 +109,12 @@ export default function PokemonDetail(pokemon) {
             <div class="stat">
                 <p class="stat-name">${statName[stat.stat.name]}</p>
                 <p class="stat-number">${stat.base_stat.toString().padStart(3, "0")}</p>
-                <div class="stat-bar">
-                    <div 
-                        class="stat-bar-fill" 
-                        style="width: ${stat.base_stat}%">
-                    </div>
-                </div>
+                <meter 
+                    class="stat-meter" 
+                    min="0"
+                    max="255"
+                    value="${stat.base_stat}%">
+                </meter>
             </div>
         `;
     });
